@@ -1,0 +1,67 @@
+<ion-modal-view>
+
+  <ion-header-bar>
+    <h1 class="title">
+    <span ng-model="scope.loginData.isActive" ng-if="!loginData.isActive">Login<span>
+    <span ng-model="scope.loginData.isActive" ng-if="loginData.isActive">Profile<span>
+    </h1>
+    <div class="buttons">
+      <button class="button button-clear button-assertive" ng-click="closeLogin()" ng-model="scope.loginData.isActive" ng-disable="!loginData.isActive">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <div ng-model="scope.loginData.isActive" ng-if="!loginData.isActive">
+    <div class="row">
+      <div class="col">
+      <center>
+      <a class="button button-positive icon-left ion-social-facebook">Facebook</a></center>
+      </div>
+      <div class="col">
+      <center>
+      <a class="button button-stable icon-left ion-social-octocat">GitHub</a>
+      </center>
+      </div>
+    </div>
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+      </div>
+    </form>
+    <div class="row">
+      <center><button class="button button-clear button-assertive">
+  ¿Olvidó su contraseña?
+</button></center>
+    </div>
+    </div>
+    <div  ng-model="scope.loginData.isActive" ng-if="loginData.isActive">
+      <div class="list card">
+
+    <div class="item item-avatar" ng-model="usuario">
+      <img class="col-33" ng-model="usuario" ng-src="usuario.photoUrl">
+      <center><h2>{{ usuario.displayName }}</h2></center>
+    </div>
+
+    <div class="item item-body" ng-model="usuario">
+      <p>
+        Email: {{ usuario.email }}
+      </p>
+        <p>
+          <button class="button button-full button-positive" ng-click="doLogout()" ng-model="scope.loginData.isActive" ng-disable="!loginData.isActive">Logout</button>
+        </p>
+    </div>
+
+  </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
